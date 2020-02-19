@@ -3,8 +3,11 @@ fetch('https://ghibliapi.herokuapp.com/films')
   return response.json()
 })
   .then(movies => {
-    console.log(movies);
+    const moviesContainer = document.getElementById('movies')
     movies.forEach((movie) => {
+      let movieContainer = document.createElement('div')
+      movieContainer.innerHTML = movie.title
+      moviesContainer.append(movieContainer)
       console.log(movie.title);
     });
 
